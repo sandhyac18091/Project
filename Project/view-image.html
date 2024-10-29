@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Tourist Places</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .modal { display: none; } /* Hide modals by default */
+        .modal.show { display: block; } /* Show when active */
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8">Manage Tourist Places</h1>
+
+        <!-- Add Place Button -->
+        <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" onclick="openModal('addModal')">Add New Place</button>
+
+        <!-- Table -->
+        <div class="mt-6">
+            <table class="min-w-full bg-white shadow-lg rounded-lg overflow-hidden">
+                <thead>
+                    <tr class="bg-gray-800 text-white">
+                        <th class="py-3 px-6 text-left">Place</th>
+                        <th class="py-3 px-6 text-left">Location</th>
+                        <th class="py-3 px-6 text-left">Status</th>
+                        <th class="py-3 px-6 text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="placeTableBody" class="text-gray-700">
+                    <!-- Dynamic rows will be inserted here using JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Place Modal -->
+    <div id="addModal" class="modal fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+            <h2 class="text-xl font-bold mb-4">Add New Place</h2>
+            <label class="block mb-2">Place Name</label>
+            <input type="text" id="addPlaceName" class="w-full border border-gray-300 rounded px-3 py-2 mb-4">
+
+            <label class="block mb-2">Location</label>
+            <input type="text" id="addPlaceLocation" class="w-full border border-gray-300 rounded px-3 py-2 mb-4">
+
+            <label class="block mb-2">Status</label>
+            <select id="addPlaceStatus" class="w-full border border-gray-300 rounded px-3 py-2 mb-4">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+
+            <div class="flex justify-end space-x-4">
+                <button class="bg-gray-500 text-white px-4 py-2 rounded" onclick="closeModal('addModal')">Cancel</button>
+                <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="addPlace()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Place Modal -->
+    <div id="editModal" class="modal fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+            <h2 class="text-xl font-bold mb-4">Edit Place</h2>
+            <input type="hidden" id="editPlaceId">
+
+            <label class="block mb-2">Place Name</label>
+            <input type="text" id="editPlaceName" class="w-full border border-gray-300 rounded px-3 py-2 mb-4">
+
+            <label class="block mb-2">Location</label>
+            <input type="text" id="editPlaceLocation" class="w-full border border-gray-300 rounded px-3 py-2 mb-4">
+
+            <label class="block mb-2">Status</label>
+            <select id="editPlaceStatus" class="w-full border border-gray-300 rounded px-3 py-2 mb-4">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+
+            <div class="flex justify-end space-x-4">
+                <button class="bg-gray-500 text-white px-4 py-2 rounded" onclick="closeModal('editModal')">Cancel</button>
+                <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="updatePlace()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

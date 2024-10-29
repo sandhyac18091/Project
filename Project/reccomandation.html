@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Place Recommendation Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-serif">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md fixed top-0 left-0 w-full z-10">
+        <div class="container mx-auto flex items-center justify-between py-4 px-6">
+            <a href="#" class="text-2xl font-bold text-gray-800">ExploreGo</a>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="home.html" class="text-gray-600 hover:text-blue-500">Home</a></li>
+                
+                <li><a href="review.html" class="text-gray-600 hover:text-blue-500">Review</a></li>
+                <li><a href="reccomandation.html" class="text-gray-600 hover:text-blue-500">Recommendations</a></li>
+                
+                <li><a href="viewreview.html" class="text-gray-600 hover:text-blue-500">View Reviews</a></li>
+                
+            </ul>
+            <button class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8 px-4">
+        <!-- Main Recommendation Section (Left side) -->
+        <section class="lg:col-span-2">
+            <h2 class="text-3xl font-bold text-green-500 mt-10">Latest Tourist Recommendations</h2>
+            <article class="bg-white shadow-lg p-6 rounded-lg mt-6">
+                <h3 class="text-4xl font-bold mt-4">Explore the Beauty of Bali, Indonesia</h3>
+                <p class="text-gray-600 mb-6">Recommended by John Doe</p>
+                <img src="/image/ubud-indonesia.jpg" alt="Bali" class="w-full h-64 object-cover rounded-lg mb-6">
+                <p class="text-lg leading-relaxed">Bali, a tropical paradise in Indonesia, is known for its stunning beaches, vibrant culture, and breathtaking landscapes...</p>
+            </article>
+        </section>
+
+        <!-- Recent Recommendations Section (Right side) -->
+        <section class="lg:col-span-1">
+            <h2 class="text-2xl font-bold text-green-500 mt-20">Recent Destinations</h2>
+            <ul class="space-y-6">
+                <li class="bg-white shadow-lg p-4 rounded-lg flex">
+                    <img src="/image/rom.jpg" alt="Paris" class="w-24 h-24 object-cover rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">Discover the Romance of Paris, France</h3>
+                        <p class="text-gray-600">Explore the Eiffel Tower, the Louvre, and charming cafés.</p>
+                    </div>
+                </li>
+                <li class="bg-white shadow-lg p-4 rounded-lg flex">
+                    <img src="/image/peru-4-1.jpg" alt="Machu Picchu" class="w-24 h-24 object-cover rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">Hike the Inca Trail to Machu Picchu, Peru</h3>
+                        <p class="text-gray-600">A journey to one of the New Seven Wonders of the World.</p>
+                    </div>
+                </li>
+                <li class="bg-white shadow-lg p-4 rounded-lg flex">
+                    <img src="/image/solar.webp" alt="New York" class="w-24 h-24 object-cover rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">Experience the Energy of New York City, USA</h3>
+                        <p class="text-gray-600">Visit Times Square, Central Park, and the Statue of Liberty.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+     <!-- Trending Destinations Section -->
+     <section class="bg-white py-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-green-500 mb-8">Trending Destinations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <img src="/image/reasons.jpg" alt="Santorini" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold">Santorini, Greece</h3>
+                    <p class="text-gray-600 mt-2">Famous for its blue domes, stunning sunsets, and white-washed buildings.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <img src="/image/aerial.avif" alt="Tokyo" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold">Tokyo, Japan</h3>
+                    <p class="text-gray-600 mt-2">A bustling city with a mix of modern skyscrapers and traditional temples.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <img src="/image/cape-town.jpg" alt="Cape Town" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold">Cape Town, South Africa</h3>
+                    <p class="text-gray-600 mt-2">Explore Table Mountain, scenic beaches, and vibrant culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8 px-4">
+        <!-- Main Recommendation Section (Left side) -->
+        <section class="lg:col-span-2">
+            <h2 class="text-3xl font-bold text-green-500 mt-10">Latest Tourist Recommendations</h2>
+            <article class="bg-white shadow-lg p-6 rounded-lg mt-6">
+                <h3 class="text-4xl font-bold mt-4">Discover the Wonders of Kyoto, Japan</h3>
+                <p class="text-gray-600 mb-6">Recommended by John Doe</p>
+                <img src="/image/kyoto.jpg" alt="Bali" class="w-full h-64 object-cover rounded-lg mb-6">
+                <p class="text-lg leading-relaxed">Kyoto, Japan's ancient capital, is renowned for its traditional temples, beautiful gardens, and rich cultural heritage...</p>
+            </article>
+        </section>
+    
+        <!-- Recent Recommendations Section (Right side) -->
+        <section class="lg:col-span-1">
+            <h2 class="text-2xl font-bold text-green-500 mt-20">Recent Destinations</h2>
+            <ul class="space-y-6">
+                <li class="bg-white shadow-lg p-4 rounded-lg flex">
+                    <img src="/image/Colosseum-Rome.webp" alt="Rome" class="w-24 h-24 object-cover rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">Discover Ancient History in Rome, Italy</h3>
+                        <p class="text-gray-600">Visit the Colosseum, Roman Forum, and Vatican City.</p>
+                    </div>
+                </li>
+                <li class="bg-white shadow-lg p-4 rounded-lg flex">
+                    <img src="/image/Grand-Canyon-Hiking.jpg" alt="Grand Canyon" class="w-24 h-24 object-cover rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">Hike the Trails of the Grand Canyon, USA</h3>
+                        <p class="text-gray-600">One of the most iconic landscapes in the United States.</p>
+                    </div>
+                </li>
+                <li class="bg-white shadow-lg p-4 rounded-lg flex">
+                    <img src="/image/nKnvzshFDC.jpeg" alt="Dubai" class="w-24 h-24 object-cover rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold">Explore the Modern Marvels of Dubai, UAE</h3>
+                        <p class="text-gray-600">Visit Burj Khalifa, Palm Jumeirah, and world-class malls.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+    
+    <!-- Trending Destinations Section -->
+    <section class="bg-white py-12">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-green-500 mb-8">Trending Destinations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <img src="/image/caption.jpg" alt="Maldives" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold">Maldives</h3>
+                    <p class="text-gray-600 mt-2">Famous for its crystal-clear waters and overwater bungalows.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <img src="/image/Seoul-5.jpg" alt="Seoul" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold">Seoul, South Korea</h3>
+                    <p class="text-gray-600 mt-2">A vibrant city known for K-pop, technology, and palaces.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <img src="/image/new.jpeg" alt="Queenstown" class="h-40 w-full object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-bold">Queenstown, New Zealand</h3>
+                    <p class="text-gray-600 mt-2">Famous for adventure sports and stunning landscapes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between">
+            <a href="#" class="text-white text-2xl font-semibold">Admin Dashboard</a>
+            <div class="flex space-x-4">
+                <a href="settings.html" class="text-gray-300 hover:text-white">Settings</a>
+                <a href="logout.html" class="text-gray-300 hover:text-white">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="flex">
+
+        <!-- Sidebar -->
+        <div class="bg-gray-900 w-64 min-h-screen p-6">
+            <ul class="space-y-4">
+                <li>
+                    <a href="Admin .html" class="text-gray-300 hover:text-white block">Dashboard</a>
+                </li>
+                <li>
+                    <a href="view-image.html" class="text-gray-300 hover:text-white block">Manage Places</a>
+                </li>
+                
+               
+                <li>
+                    <a href="help.html" class="text-gray-300 hover:text-white block">Help</a>
+                </li>
+                <li>
+                    <a href="settings.html" class="text-gray-300 hover:text-white block">Settings</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8">
+            <!-- Dashboard Overview -->
+            <h1 class="text-3xl font-semibold text-gray-700">Dashboard Overview</h1>
+            
+            <!-- Overview Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                <!-- Total Users -->
+                <div class="bg-white shadow-lg rounded-lg p-6 cursor-pointer" onclick="showUserList()">
+                    <h2 class="text-lg font-semibold text-gray-800">Total Users Logged In</h2>
+                    <p class="text-3xl font-bold text-gray-600 mt-4" id="totalUsers">532</p>
+                </div>
+
+                <!-- Total User Reviews -->
+                <div class="bg-white shadow-lg rounded-lg p-6 cursor-pointer" onclick="showReviewList()">
+                    <h2 class="text-lg font-semibold text-gray-800">Total User Reviews</h2>
+                    <p class="text-3xl font-bold text-gray-600 mt-4" id="totalReviews">128</p>
+                </div>
+
+                <!-- Total Site Exploration -->
+                
+
+                <!-- Admin Actions: Recommended Places -->
+                <div class="bg-white shadow-lg rounded-lg p-6">
+                    <h2 class="text-lg font-semibold text-gray-800">Admin Recommended Places</h2>
+                    <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded mt-4" onclick="recommendPlace()">Recommend Place</button>
+                </div>
+            </div>
+
+            <!-- User List Section (Initially Hidden) -->
+            <div id="userListSection" class="mt-8 hidden">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Logged In Users</h2>
+                <table class="min-w-full bg-white shadow-lg rounded-lg">
+                    <thead class="bg-gray-800 text-white">
+                        <tr>
+                            <th class="w-1/3 py-2">Username</th>
+                            <th class="w-1/3 py-2">Email</th>
+                            <th class="w-1/3 py-2">Login Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userList">
+                        <!-- Example Rows - Data would come from backend -->
+                        <tr>
+                            <td class="border px-4 py-2">John Doe</td>
+                            <td class="border px-4 py-2">john.doe@example.com</td>
+                            <td class="border px-4 py-2">10/13/2024 14:32:10</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Jane Smith</td>
+                            <td class="border px-4 py-2">jane.smith@example.com</td>
+                            <td class="border px-4 py-2">10/13/2024 14:15:08</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Alex Johnson</td>
+                            <td class="border px-4 py-2">alex.johnson@example.com</td>
+                            <td class="border px-4 py-2">10/13/2024 13:59:45</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">John Doe</td>
+                            <td class="border px-4 py-2">john.doe@example.com</td>
+                            <td class="border px-4 py-2">10/13/2024 14:32:10</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Jane Smith</td>
+                            <td class="border px-4 py-2">jane.smith@example.com</td>
+                            <td class="border px-4 py-2">10/13/2024 14:15:08</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Alex Johnson</td>
+                            <td class="border px-4 py-2">alex.johnson@example.com</td>
+                            <td class="border px-4 py-2">10/13/2024 13:59:45</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Review List Section (Initially Hidden) -->
+            <div id="reviewListSection" class="mt-8 hidden">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">User Reviews</h2>
+                <table class="min-w-full bg-white shadow-lg rounded-lg">
+                    <thead class="bg-gray-800 text-white">
+                        <tr>
+                            <th class="w-1/3 py-2">Username</th>
+                            <th class="w-1/3 py-2">Place Name</th>
+                            <th class="w-1/3 py-2">Review</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reviewList">
+                        <!-- Example Rows - Data would come from backend -->
+                        <tr>
+                            <td class="border px-4 py-2">John Doe</td>
+                            <td class="border px-4 py-2">Machu Picchu</td>
+                            <td class="border px-4 py-2">"Amazing place to visit!"</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Jane Smith</td>
+                            <td class="border px-4 py-2">Santorini</td>
+                            <td class="border px-4 py-2">"Beautiful landscape and great experience!"</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Alex Johnson</td>
+                            <td class="border px-4 py-2">Great Wall of China</td>
+                            <td class="border px-4 py-2">"A must-visit location for history lovers."</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">John Doe</td>
+                            <td class="border px-4 py-2">Machu Picchu</td>
+                            <td class="border px-4 py-2">"Amazing place to visit!"</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Jane Smith</td>
+                            <td class="border px-4 py-2">Santorini</td>
+                            <td class="border px-4 py-2">"Beautiful landscape and great experience!"</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Alex Johnson</td>
+                            <td class="border px-4 py-2">Great Wall of China</td>
+                            <td class="border px-4 py-2">"A must-visit location for history lovers."</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">John Doe</td>
+                            <td class="border px-4 py-2">Machu Picchu</td>
+                            <td class="border px-4 py-2">"Amazing place to visit!"</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Jane Smith</td>
+                            <td class="border px-4 py-2">Santorini</td>
+                            <td class="border px-4 py-2">"Beautiful landscape and great experience!"</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2">Alex Johnson</td>
+                            <td class="border px-4 py-2">Great Wall of China</td>
+                            <td class="border px-4 py-2">"A must-visit location for history lovers."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Admin Actions: Delete Places -->
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold text-gray-800">Admin Actions</h2>
+                <div class="mt-4">
+                    <!-- Admin can select a place and delete it -->
+                    <label for="deletePlace" class="block text-gray-700">Delete Place</label>
+                    <select id="deletePlace" class="mt-2 block w-full p-2 border border-gray-300 rounded">
+                        <option value="Machu Picchu">Machu Picchu</option>
+                        <option value="Santorini">Santorini</option>
+                        <option value="Great Wall of China">Great Wall of China</option>
+                        <!-- Add more places dynamically -->
+                    </select>
+                    <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded mt-4" onclick="deletePlace()">Delete Selected Place</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Example Data - This would typically come from a backend API
+        const totalUsers = 532;
+        const totalReviews = 128;
+        const totalSiteExploration = 2340;
+
+        // Display the data in the respective elements
+        document.getElementById('totalUsers').innerText = totalUsers;
+        document.getElementById('totalReviews').innerText = totalReviews;
+        document.getElementById('totalSiteExploration').innerText = totalSiteExploration;
+
+        // Function to simulate recommending a place
+        function recommendPlace() {
+            alert("Admin has recommended a new place.");
+        }
+
+        // Function to delete a selected place
+        function deletePlace() {
+            const selectedPlace = document.getElementById('deletePlace').value;
+            alert(`Admin has deleted the place: ${selectedPlace}`);
+        }
+
+        // Function to show the logged-in user list
+        function showUserList() {
+            document.getElementById('userListSection').classList.remove('hidden');
+            document.getElementById('reviewListSection').classList.add('hidden'); // Hide reviews if shown
+        }
+
+        // Function to show the user reviews list
+        function showReviewList() {
+            document.getElementById('reviewListSection').classList.remove('hidden');
+            document.getElementById('userListSection').classList.add('hidden'); // Hide users if shown
+        }
+    </script>
+
+</body>
+</html>
