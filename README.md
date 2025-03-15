@@ -38,7 +38,7 @@ The app is designed to be user-friendly, allowing individuals to not only track 
 1.Clone the repository:
 
 ```bash
- git clone "repository-url"
+ git clone "git@github.com:sandhyac18091/TripTales.git"
 ```
 2.Build and Start the application:
 ```bash
