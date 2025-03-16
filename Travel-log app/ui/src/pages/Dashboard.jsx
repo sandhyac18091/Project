@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   const fetchTotalUsers = async () => {
     try {
-      const response = await fetch("http://localhost:6005/totalUsers");
+      const response = await fetch("http://localhost:7005/totalUsers");
       const data = await response.json();
       setTotalUsers(data.totalUsers);
     } catch (error) {
@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const fetchTotalLogs = async () => {
     try {
-      const response = await fetch("http://localhost:6005/totalLogs");
+      const response = await fetch("http://localhost:7005/totalLogs");
       const data = await response.json();
       setTotalLogs(data.totalLogs);
     } catch (error) {
@@ -31,7 +31,7 @@ const Dashboard = () => {
 
   const fetchLogs = async () => {
     try {
-      const response = await fetch("http://localhost:6005/getLogs");
+      const response = await fetch("http://localhost:7005/getLogs");
       const data = await response.json();
       setLogs(data);
     } catch (error) {
@@ -42,7 +42,7 @@ const Dashboard = () => {
 
   const deleteLog = async (logId) => {
     try {
-      await fetch(`http://localhost:6005/deleteLog/${logId}`, { method: "DELETE" });
+      await fetch(`http://localhost:7005/deleteLog/${logId}`, { method: "DELETE" });
       setLogs(logs.filter(log => log._id !== logId));
     } catch (error) {
       console.error("Error deleting log:", error);

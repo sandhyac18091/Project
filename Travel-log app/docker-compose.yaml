@@ -16,7 +16,7 @@ services:
       context: server
       dockerfile: ./Dockerfile
     ports:
-      - 6005:6005
+      - 7005:7005
 
   ui:
     image: ui
@@ -27,7 +27,7 @@ services:
       context: ui
       dockerfile: ./Dockerfile
     ports:
-      - 2002:2002
+      - 2004:2004
 
 volumes:
   mongo_volume:

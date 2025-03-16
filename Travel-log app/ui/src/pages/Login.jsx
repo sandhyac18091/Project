@@ -12,7 +12,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('/api/login', {
+            const response = await fetch('/api/Login', {
                 method: 'POST',
                 credentials: 'include',
                 headers: { 'Content-Type': 'application/json' },
@@ -27,7 +27,7 @@ const Login = () => {
             const data = await response.json();
             console.log("Login Response:", data);
 
-            if (data.userrole == 'Admin') { 
+            if (data.Userrole == 'Admin') { 
                 navigate('/admin-dashboard');
             } else {
                 navigate('/home');

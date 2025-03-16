@@ -8,7 +8,7 @@ const LogPage = () => {
     useEffect(() => {
         const fetchLogs = async () => {
             try {
-                const response = await fetch("http://localhost:6008/myLogs", {
+                const response = await fetch("http://localhost:7005/myLogs", {
                     method: "GET",
                     credentials: "include",
                 });

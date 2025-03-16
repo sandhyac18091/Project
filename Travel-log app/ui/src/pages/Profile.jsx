@@ -10,7 +10,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await fetch("http://localhost:6005/profile", {
+                const response = await fetch("http://localhost:7005/profile", {
                     method: "GET",
                     headers: { "Content-Type": "application/json" },
                     credentials: "include",

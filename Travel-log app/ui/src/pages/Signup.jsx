@@ -21,7 +21,7 @@ const Signup = () => {
 
 
    try {
-     const response = await fetch('http://localhost:6005/Signup', {
+     const response = await fetch('http://localhost:7005/Signup', {
        method: 'POST',
        credentials: 'include',
        headers: {

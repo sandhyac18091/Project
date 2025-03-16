@@ -9,42 +9,43 @@ const UserRoute=Router()
 const convertToBase64 = (buffer) => {
     return buffer.toString('base64');
 };
-UserRoute.post('/addlog',authenticate,upload.single("logImage"),async(req,res)=>{
-    
-    try{
-        const{Logid,Category,Placename,Dateoftravel,Description,Rating}=req.body
-        console.log(req.body);
-        
-        const existinglog=await add.findOne({logid:Logid})
-    if(existinglog){
-        res.status(403).json({message:"Already exist this logid"})
-    }else{
-        let imageBase64 = null;
-      if (req.file) {
-        imageBase64 = convertToBase64(req.file.buffer)
+UserRoute.post('/addlog', authenticate, upload.single("logImage"), async (req, res) => {
+  try {
+      const { Category, Placename, Dateoftravel, Description, Rating } = req.body;
+
+      const existingLog = await add.findOne({
+          placename: Placename,
+          dateoftravel: Dateoftravel,
+          
+      });
+
+      if (existingLog) {
+          return res.status(403).json({ message: "Log already exists for this place on this date." });
       }
-        const newUser=new add({
-            
-            logid:Logid,
-            category:Category,
-            placename:Placename,
-            dateoftravel:Dateoftravel,
-            description:Description,
-            rating:Rating,
-            image:imageBase64,
-            email: req.Email
-        })
-        await newUser.save();
-        res.status(201).json({message:'log Successfully added'})
-        
-        
-    }
-    }catch{
-        // console.log(error);
-        res.status(500).json({message:'Internal Server error'})
-        
-    }
-})
+
+      let imageBase64 = null;
+      if (req.file) {
+          imageBase64 = convertToBase64(req.file.buffer);
+      }
+
+      const newLog = new add({
+          category: Category,
+          placename: Placename,
+          dateoftravel: Dateoftravel,
+          description: Description,
+          rating: Rating,
+          image: imageBase64,
+          email: req.Email
+      });
+
+      await newLog.save();
+      res.status(201).json({ message: 'Log successfully added' });
+
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
 
 UserRoute.post('/toggleFavorite/:id', async (req, res) => {
   try {

@@ -8,7 +8,7 @@ const FavoritePage = () => {
     useEffect(() => {
         const fetchFavoriteLogs = async () => {
             try {
-                const response = await fetch("http://localhost:6005/getFavoriteLogs");
+                const response = await fetch("http://localhost:7005/getFavoriteLogs");
                 const data = await response.json();
                 setFavoriteLogs(data);
             } catch (error) {
@@ -20,7 +20,7 @@ const FavoritePage = () => {
 
     const toggleFavorite = async (id) => {
         try {
-            const response = await fetch(`http://localhost:6005/toggleFavorite/${id}`, {
+            const response = await fetch(`http://localhost:7005/toggleFavorite/${id}`, {
                 method: "POST",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },

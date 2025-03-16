@@ -5,7 +5,6 @@ import Navbar from '../Components/Navbar';
 const Addlog = () => {
   const location = useLocation();
 
-  const [logid, setLogid] = useState('');
   const [category, setCategory] = useState(location.state?.selectedCategory || '');
   const [placename, setPlacename] = useState('');
   const [dateoftravel, setDateoftravel] = useState('');
@@ -17,29 +16,26 @@ const Addlog = () => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      formData.append('Logid', logid);
       formData.append('Category', category);
       formData.append('Placename', placename);
       formData.append('Dateoftravel', dateoftravel);
       formData.append('Description', description);
       formData.append('Rating', rating);
-      console.log(formData);
 
       if (logImage) {
         formData.append('logImage', logImage);
       }
-      const response = await fetch('http://localhost:6005/addlog', {
+
+      const response = await fetch('http://localhost:7005/addlog', {
         method: 'POST',
         credentials: 'include',
         body: formData,
       });
 
       if (!response.ok) {
-
         const text = await response.text();
         throw new Error(text || 'Unknown error occurred');
       }
-
 
       alert('Log added successfully!');
       setCategory('');
@@ -65,15 +61,6 @@ const Addlog = () => {
           <input
             type="text"
             className="w-full p-3 border border-gray-300  focus:ring-2 focus:ring-blue-500 focus:border-black"
-            placeholder="Log ID"
-            value={logid}
-            onChange={(e) => setLogid(e.target.value)}
-            required
-          />
-
-          <input
-            type="text"
-            className="w-full p-3 border border-gray-300  focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             placeholder="Category"
             value={category}
             onChange={(e) => setCategory(e.target.value)}

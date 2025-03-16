@@ -18,7 +18,7 @@ const ViewLogs = () => {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const response = await fetch("http://localhost:6005/getallLog", {
+        const response = await fetch("http://localhost:7005/getallLog", {
           method: "GET",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -45,7 +45,7 @@ const ViewLogs = () => {
   }, []);
   const toggleFavorite = async (id) => {
     try {
-      const response = await fetch(`http://localhost:6005/toggleFavorite/${id}`, {
+      const response = await fetch(`http://localhost:7005/toggleFavorite/${id}`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

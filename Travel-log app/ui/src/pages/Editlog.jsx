@@ -17,7 +17,7 @@ const Editlog = () => {
   useEffect(() => {
     const fetchLog = async () => {
       try {
-        const res = await fetch(`http://localhost:6005/getlog/${encodeURIComponent(placename)}`);
+        const res = await fetch(`http://localhost:7005/getlog/${encodeURIComponent(placename)}`);
         if (!res.ok) {
           throw new Error("Failed to fetch log");
         }
@@ -48,7 +48,7 @@ const Editlog = () => {
         Rating: rating,
       };
 
-      const res = await fetch("http://localhost:6005/editlog", {
+      const res = await fetch("http://localhost:7005/editlog", {
         method: "PATCH",
         credentials: "include",
         headers: {

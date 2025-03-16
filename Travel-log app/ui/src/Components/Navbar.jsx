@@ -7,6 +7,7 @@ import travellog from "../assets/airplane.png";
 const Navbar = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -29,6 +30,7 @@ const Navbar = () => {
         <Link to="/contact-us" className="text-white text-lg font-serif hover:text-gray-400">Contact Us</Link>
         <Link to="/mylog" className="text-white text-lg font-serif hover:text-gray-400">Mylog</Link>
         <Link to="/fav" className="text-white text-lg font-serif hover:text-gray-400">Favorite</Link>
+        
       </div>
 
       
