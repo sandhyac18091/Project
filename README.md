@@ -44,4 +44,7 @@ The app is designed to be user-friendly, allowing individuals to not only track 
 ```bash
  docker -compose up --build
 ```
+## Demo
+
+https://youtu.be/6b09WInPZUQ
     
